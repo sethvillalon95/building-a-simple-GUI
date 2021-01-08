@@ -15,6 +15,9 @@ public class Vis extends JPanel {
     public Vis() {
         super();
     }
+    
+
+
 
     @Override
     public void paintComponent(Graphics g1) {
@@ -45,35 +48,36 @@ public class Vis extends JPanel {
 		//background color 
 		g.setColor(Color.RED);
 		g.fillRect(0,0,w,h);
-		
-		
-		// remove stripes?
-		for (int i = 0; i < 6; i++){
-			g.setColor(Color.WHITE);
-			g.fillRect(0,stripeHeight1,stripeWidth,stripeHeight);
-			stripeHeight1 += stripeHeight*2;
-		}
-		
+//		
+//		
+//		// remove stripes?
+//		for (int i = 0; i < 6; i++){
+//			g.setColor(Color.WHITE);
+//			g.fillRect(0,stripeHeight1,stripeWidth,stripeHeight);
+//			stripeHeight1 += stripeHeight*2;
+//		}
+//		
 		// Box 
 		g.setColor(Color.BLUE);
 		g.fillRect(0,0,blueBoxWidth,blueBoxHeight);
-		
-		//remove stripes?
-		// Stars 
-		int y = 0 ;
-		for ( int i = 0; i < numRows; i++){
-			int x = 0 ;
-			for (int j = 0; j < numCols; j++){
-				g.setColor(Color.WHITE);
-				g.fillOval( x, y,starWidth, starHeight);
-				x +=starWidth;
-				
-			}
-			y +=starHeight;
-			
-		}
-		
+//		
+//		//remove stripes?
+//		// Stars 
+//		int y = 0 ;
+//		for ( int i = 0; i < numRows; i++){
+//			int x = 0 ;
+//			for (int j = 0; j < numCols; j++){
+//				g.setColor(Color.WHITE);
+//				g.fillOval( x, y,starWidth, starHeight);
+//				x +=starWidth;
+//				
+//			}
+//			y +=starHeight;
+//			
+//		}
+//		
 		
     }
+
 
 }
