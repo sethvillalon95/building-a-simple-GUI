@@ -9,12 +9,21 @@ import java.io.File;
 import javax.swing.JPanel;
 
 
-public class Vis extends JPanel {
+public class Vis extends JPanel  {
+    public Color background;
+    public Color stripesC;
 
 
     public Vis() {
         super();
+        background = Color.RED;
     }
+    
+//    public Vis(Color input_background) {
+//    	super();
+//    	// do something here
+//    }
+
     
 
 
@@ -28,7 +37,7 @@ public class Vis extends JPanel {
         g.fillRect(0, 0, getWidth(), getHeight());
 
         //render visualization
-        g.setColor(Color.BLACK);
+//        g.setColor(Color.BLACK);
         g.drawString("Your content here", 10, 20);
         int w = getWidth(); 
 		int h = getHeight(); 
@@ -46,17 +55,17 @@ public class Vis extends JPanel {
 	
 		
 		//background color 
-		g.setColor(Color.RED);
+		g.setColor(background);
 		g.fillRect(0,0,w,h);
 //		
-//		
-//		// remove stripes?
-//		for (int i = 0; i < 6; i++){
-//			g.setColor(Color.WHITE);
-//			g.fillRect(0,stripeHeight1,stripeWidth,stripeHeight);
-//			stripeHeight1 += stripeHeight*2;
-//		}
-//		
+		
+		// remove stripes?
+		for (int i = 0; i < 6; i++){
+			g.setColor(Color.WHITE);
+			g.fillRect(0,stripeHeight1,stripeWidth,stripeHeight);
+			stripeHeight1 += stripeHeight*2;
+		}
+		
 		// Box 
 		g.setColor(Color.BLUE);
 		g.fillRect(0,0,blueBoxWidth,blueBoxHeight);

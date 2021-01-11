@@ -70,13 +70,20 @@ public class Main extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 System.out.println("Just clicked Action 1");
-//                setBackground(new Color(152,255,100));
-                Graphics g = new Graphics(); 
-                int w = getWidth(); 
-        		int h = getHeight();
-        		g.setColor(Color.RED);
-        		g.fillRect(0,0,w,h);
-//                repaint();
+                System.out.println(mainPanel.background);
+                mainPanel.background = Color.CYAN;
+                System.out.println(mainPanel.background);
+            	try {
+            		repaint();
+            		System.out.println("The try worked");
+
+            		}
+            		catch(Exception excep) {
+                        System.out.println("The repaint didnt work");
+            		}
+                
+                System.out.println(mainPanel.background);
+
 
             }
         });
