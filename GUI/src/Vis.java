@@ -12,11 +12,16 @@ import javax.swing.JPanel;
 public class Vis extends JPanel  {
     public Color background;
     public Color stripesC;
+    public Color starsC;
+    public Color boxC;
 
 
     public Vis() {
         super();
         background = Color.RED;
+        stripesC = background;
+        boxC = background;
+        starsC = background;
     }
     
 //    public Vis(Color input_background) {
@@ -61,30 +66,30 @@ public class Vis extends JPanel  {
 		
 		// remove stripes?
 		for (int i = 0; i < 6; i++){
-			g.setColor(Color.WHITE);
+			g.setColor(stripesC);
 			g.fillRect(0,stripeHeight1,stripeWidth,stripeHeight);
 			stripeHeight1 += stripeHeight*2;
 		}
 		
 		// Box 
-		g.setColor(Color.BLUE);
+		g.setColor(boxC);
 		g.fillRect(0,0,blueBoxWidth,blueBoxHeight);
 //		
 //		//remove stripes?
-//		// Stars 
-//		int y = 0 ;
-//		for ( int i = 0; i < numRows; i++){
-//			int x = 0 ;
-//			for (int j = 0; j < numCols; j++){
-//				g.setColor(Color.WHITE);
-//				g.fillOval( x, y,starWidth, starHeight);
-//				x +=starWidth;
-//				
-//			}
-//			y +=starHeight;
-//			
-//		}
-//		
+		// Stars 
+		int y = 0 ;
+		for ( int i = 0; i < numRows; i++){
+			int x = 0 ;
+			for (int j = 0; j < numCols; j++){
+				g.setColor(starsC);
+				g.fillOval( x, y,starWidth, starHeight);
+				x +=starWidth;
+				
+			}
+			y +=starHeight;
+			
+		}
+		
 		
     }
 

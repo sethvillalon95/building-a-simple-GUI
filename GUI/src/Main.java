@@ -70,35 +70,57 @@ public class Main extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 System.out.println("Just clicked Action 1");
-                System.out.println(mainPanel.background);
-                mainPanel.background = Color.CYAN;
-                System.out.println(mainPanel.background);
+
+                mainPanel.boxC= Color.BLUE;
+                mainPanel.starsC= Color.BLUE;
+
             	try {
-            		repaint();
-            		System.out.println("The try worked");
+	            		repaint();
+	            		System.out.println("The try worked");
 
             		}
             		catch(Exception excep) {
                         System.out.println("The repaint didnt work");
             		}
                 
-                System.out.println(mainPanel.background);
 
 
             }
         });
         
         action2.addActionListener(new ActionListener() {
-            @Override
+        	@Override
             public void actionPerformed(ActionEvent e) {
                 System.out.println("Just clicked Action 2");
+                mainPanel.stripesC = Color.WHITE;
+            	try {
+            			repaint();
+
+            		}
+            		catch(Exception excep) {
+                        System.out.println("The repaint didnt work");
+            		}
+                
+
+
             }
         });
         
         action3.addActionListener(new ActionListener() {
-            @Override
+        	@Override
             public void actionPerformed(ActionEvent e) {
                 System.out.println("Just clicked Action 3");
+                mainPanel.starsC = Color.WHITE;
+            	try {
+            			repaint();
+
+            		}
+            		catch(Exception excep) {
+                        System.out.println("The repaint didnt work");
+            		}
+                
+
+
             }
         });
 
