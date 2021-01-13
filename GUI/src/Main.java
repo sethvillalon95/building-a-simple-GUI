@@ -3,7 +3,7 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
+import javax.swing.Timer;
 import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
@@ -11,6 +11,11 @@ import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 
 public class Main extends JFrame {
+    
+	int dx = 0;
+	int dy = 0;
+	int x = 0; 
+	int y = 0 ;
 
     private Vis mainPanel;
 
@@ -26,6 +31,12 @@ public class Main extends JFrame {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setTitle("Seth Villalon's GUI");
         setVisible(true);
+        
+		 dx = 2;
+		 dy = 0;
+		 x = 50; 
+		 y = 50 ;
+        
     }
 
     private JMenuBar setupMenu() {
@@ -34,9 +45,14 @@ public class Main extends JFrame {
         
         JMenuItem fileMenu = new JMenu("File");
         JMenuItem actions = new JMenu("Actions");
+        JMenuItem action = new JMenuItem("Red");
         JMenuItem action1 = new JMenuItem("Action 1");
         JMenuItem action2 = new JMenuItem("Action 2");
         JMenuItem action3 = new JMenuItem("Action 3");
+        JMenuItem action4 = new JMenuItem("Reset");
+        JMenuItem action5 = new JMenuItem("Animation");
+
+
 
         JMenuItem item1 = new JMenuItem("Item 1");
         JMenu subMenu = new JMenu("Submenu");
@@ -63,6 +79,26 @@ public class Main extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 System.out.println("Just clicked menu item 2");
+            }
+        });
+        
+        action.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                System.out.println("Just clicked Red");
+
+                mainPanel.background= Color.RED;
+
+            	try {
+	            		repaint();
+
+            		}
+            		catch(Exception excep) {
+                        System.out.println("The repaint didnt work");
+            		}
+                
+
+
             }
         });
         
@@ -93,6 +129,7 @@ public class Main extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 System.out.println("Just clicked Action 2");
                 mainPanel.stripesC = Color.WHITE;
+
             	try {
             			repaint();
 
@@ -111,6 +148,7 @@ public class Main extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 System.out.println("Just clicked Action 3");
                 mainPanel.starsC = Color.WHITE;
+
             	try {
             			repaint();
 
@@ -123,16 +161,75 @@ public class Main extends JFrame {
 
             }
         });
+        action4.addActionListener(new ActionListener() {
+        	@Override
+            public void actionPerformed(ActionEvent e) {
+                System.out.println("Just clicked Action 4");
+                mainPanel.background = Color.WHITE;
+                mainPanel.boxC = Color.WHITE;
+                mainPanel.stripesC = Color.WHITE;
+                mainPanel.starsC = Color.WHITE;
 
+            	try {
+            			repaint();
+//            			dx+=10;
+//            			dy+=10;
+
+            		}
+            		catch(Exception excep) {
+                        System.out.println("The repaint didnt work");
+            		}
+                System.out.println("End of code");
+
+
+
+            }
+        });
+        
+        // Animation 
+        action5.addActionListener(new ActionListener() {
+        	@Override
+            public void actionPerformed(ActionEvent e) {
+
+        	
+                Timer t = new Timer(10, this);
+                System.out.println("Started time");
+                
+                Graphics g = mainPanel.getGraphics();
+                g.setColor(Color.WHITE);
+                g.fillRect(x,y,200,200);
+             
+
+
+                t.start();
+                x+=dx;
+                y+=dy;
+                repaint();
+
+
+
+
+
+
+                System.out.println("End of code");
+
+
+
+            }
+        });
 
         //now hook them all together
         subMenu.add(item2);
         fileMenu.add(item1);
         fileMenu.add(subMenu);
         menuBar.add(fileMenu);
+        actions.add(action);
         actions.add(action1);
         actions.add(action2);
         actions.add(action3);
+        actions.add(action4);
+        actions.add(action5);
+
         menuBar.add(actions);
 
         return menuBar;

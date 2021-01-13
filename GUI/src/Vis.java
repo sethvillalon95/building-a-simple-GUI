@@ -7,6 +7,7 @@ import java.awt.event.MouseMotionListener;
 import java.io.File;
 
 import javax.swing.JPanel;
+import javax.swing.Timer;
 
 
 public class Vis extends JPanel  {
