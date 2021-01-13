@@ -14,8 +14,7 @@ public class Main extends JFrame {
     
 	int dx = 0;
 	int dy = 0;
-	int x = 0; 
-	int y = 0 ;
+
 
     private Vis mainPanel;
 
@@ -32,11 +31,10 @@ public class Main extends JFrame {
         setTitle("Seth Villalon's GUI");
         setVisible(true);
         
-		 dx = 2;
-		 dy = 0;
-		 x = 50; 
-		 y = 50 ;
-        
+
+
+//         Graphics g = mainPanel.getGraphics();
+
     }
 
     private JMenuBar setupMenu() {
@@ -109,6 +107,7 @@ public class Main extends JFrame {
 
                 mainPanel.boxC= Color.BLUE;
                 mainPanel.starsC= Color.BLUE;
+                mainPanel.ballC = Color.BLUE;
 
             	try {
 	            		repaint();
@@ -124,6 +123,7 @@ public class Main extends JFrame {
             }
         });
         
+        // show the stripes 
         action2.addActionListener(new ActionListener() {
         	@Override
             public void actionPerformed(ActionEvent e) {
@@ -143,11 +143,14 @@ public class Main extends JFrame {
             }
         });
         
+        
+        // show the stars
         action3.addActionListener(new ActionListener() {
         	@Override
             public void actionPerformed(ActionEvent e) {
                 System.out.println("Just clicked Action 3");
                 mainPanel.starsC = Color.WHITE;
+                mainPanel.ballC=Color.WHITE;
 
             	try {
             			repaint();
@@ -161,6 +164,7 @@ public class Main extends JFrame {
 
             }
         });
+        // reset
         action4.addActionListener(new ActionListener() {
         	@Override
             public void actionPerformed(ActionEvent e) {
@@ -169,11 +173,12 @@ public class Main extends JFrame {
                 mainPanel.boxC = Color.WHITE;
                 mainPanel.stripesC = Color.WHITE;
                 mainPanel.starsC = Color.WHITE;
+                mainPanel.show = true;
+                mainPanel.ballC = Color.RED;
 
             	try {
             			repaint();
-//            			dx+=10;
-//            			dy+=10;
+
 
             		}
             		catch(Exception excep) {
@@ -194,26 +199,17 @@ public class Main extends JFrame {
         	
                 Timer t = new Timer(10, this);
                 System.out.println("Started time");
-                
-                Graphics g = mainPanel.getGraphics();
-                g.setColor(Color.WHITE);
-                g.fillRect(x,y,200,200);
-             
-
-
                 t.start();
-                x+=dx;
-                y+=dy;
+                int x = mainPanel.cx;
+                int y = mainPanel.cy;
+
+                
+                mainPanel.cx+=1;
+//                mainPanel.cy+=dy;
                 repaint();
 
 
-
-
-
-
                 System.out.println("End of code");
-
-
 
             }
         });

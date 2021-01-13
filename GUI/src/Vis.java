@@ -10,25 +10,30 @@ import javax.swing.JPanel;
 import javax.swing.Timer;
 
 
-public class Vis extends JPanel  {
+public class Vis extends JPanel {
     public Color background;
     public Color stripesC;
     public Color starsC;
     public Color boxC;
+    public Color ballC; 
+    
+    boolean show;
+    int cx = 0; 
+    int cy = 0;
 
 
     public Vis() {
         super();
+        
+        // initialize the colors 
         background = Color.RED;
         stripesC = background;
         boxC = background;
         starsC = background;
+        ballC = background;
+        show = false;
     }
-    
-//    public Vis(Color input_background) {
-//    	super();
-//    	// do something here
-//    }
+
 
     
 
@@ -78,6 +83,8 @@ public class Vis extends JPanel  {
 //		
 //		//remove stripes?
 		// Stars 
+		
+
 		int y = 0 ;
 		for ( int i = 0; i < numRows; i++){
 			int x = 0 ;
@@ -90,8 +97,12 @@ public class Vis extends JPanel  {
 			y +=starHeight;
 			
 		}
-		
-		
+		if(show) {
+	        g.setColor(ballC);
+	        g.fillOval(cx,cy,100,100);
+
+		}
+
     }
 
 
